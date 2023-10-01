@@ -1,5 +1,7 @@
 package Homework12;
 
+import java.util.Objects;
+
 public class Book {
     private final String title;
     private int publishingYear;
@@ -29,7 +31,29 @@ public class Book {
 
 
     // Сокращаем код, чтобы быстрее выводить информацию по книге
-    public String getAutorFullName() {
-        return author.getName() + " " + author.getSurname();
+//    public String getAutorFullName() {
+//        return author.getName() + " " + author.getSurname();
+//    }
+
+    //Сокращаем с помощью toString
+    public String toString() {
+        return getTitle() + " " + getPublishingYear() + " " + author;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Book book = (Book) o;
+        return publishingYear == book.publishingYear && Objects.equals(title, book.title) && Objects.equals(author, book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, publishingYear, author);
     }
 }

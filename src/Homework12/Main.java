@@ -9,20 +9,17 @@ public class Main {
         Book theJungleBook = new Book("Книга джунглей", 1895, kipling);
         theJungleBook.setPublishingYear(1894); //изменил год с 1895 на 1894
 
-        //Сократили нижнюю часть в классе Book с помощью геттера FullName
-        //System.out.println(memoirsOfAGeisha.getTitle() +" " + memoirsOfAGeisha.getPublishingYear() +" " +memoirsOfAGeisha.getAuthor().getName() +" " +memoirsOfAGeisha.getAuthor().getSurname());
-        //Теперь код выглядит так:
-        System.out.println(memoirsOfAGeisha.getTitle() +" " +memoirsOfAGeisha.getPublishingYear() +" " +memoirsOfAGeisha.getAutorFullName());
-        System.out.println(theJungleBook.getTitle() +" " +theJungleBook.getPublishingYear() +" " +theJungleBook.getAutorFullName());
+        printInfo(memoirsOfAGeisha);
+        printInfo(theJungleBook);
 
-        print(memoirsOfAGeisha);
-        print(theJungleBook);
+        System.out.println("Сравнение авторов " +golden.equals(kipling));
+        System.out.println("Сравнение книг " +memoirsOfAGeisha.equals(theJungleBook));
 
     }
-//Но можно сократить запись еще больше и сделать всё в автоматическом режиме
-    private static void print(Book book) {
-        System.out.println(book.getTitle() +" " +book.getPublishingYear() +" " +book.getAutorFullName());
+
+    private static void printInfo(Book book) {
+        System.out.println(book);
+        System.out.println(book.hashCode());
     }
-    //Осталось лишь написать: print(и указать название книги в скобках)
 
 }
